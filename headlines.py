@@ -9,13 +9,9 @@ RSS_FEEDS = {'bbc': 'http://feeds.bbci.co.uk/news/rss.xml',
              'iol': 'http://www.iol.co.za/cmlink/1.640'}
 
 @app.route("/")
-@app.route("/bbc")
-def bbc():
-    return get_news('bbc')
-
-@app.route("/cnn")
-def cnn():
-    return get_news('cnn')
+@app.route("/<publication>")
+def get_news(publication="bbc"):
+    # rest of code unchanged
 
 def get_news(publication):
   feed = feedparser.parse(RSS_FEEDS[publication])
