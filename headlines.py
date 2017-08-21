@@ -35,6 +35,7 @@ def home():
   if not city:
     city = DEFAULTS['city']
   weather = get_weather(city)
+  # get customized currency rates based on user input or default
   currency_from = request.args.get("currency_from")
   if not currency_from:
     currency_from = DEFAULTS['currency_from']
